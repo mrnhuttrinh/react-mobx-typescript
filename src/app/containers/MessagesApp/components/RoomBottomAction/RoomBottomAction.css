@@ -1,0 +1,16 @@
+.messageapp__roombottomaction {
+    width: 100%;
+    flex: 0 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.messagapp__roombottomaction__item {
+    font-size: 40px;
+}
+
+.messagapp__roombottomaction__item:hover {
+    cursor: pointer;
+    font-size: 45px;
+}

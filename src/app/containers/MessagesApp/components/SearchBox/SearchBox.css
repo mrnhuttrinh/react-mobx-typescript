@@ -1,0 +1,14 @@
+.messageapp__searchbox {
+    width: 100%;
+    flex: 0 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.messageapp__searchbox input {
+    border-radius: 6px;
+    height: 30px;
+    width: 90%;
+    font-size: 20px;
+}

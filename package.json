@@ -1,17 +1,16 @@
 {
-  "name": "react-mobx-typescript",
+  "name": "typescript-react-mobx-boilerplate",
   "version": "1.0.0",
-  "description": "react-mobx-typescript",
+  "private": true,
+  "description": "A frontend boilerplate with React, MobX and Typescript",
   "main": "index.js",
-  "repository": "https://github.com/mrnhuttrinh/react-mobx-typescript.git",
-  "author": "Trinh Nguyen <mrnhuttrinh@gmail.com>",
-  "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --config config/webpack.dev.js",
+    "start": "webpack-dev-server --mode development --hot --progress --colors --port 3000 --open",
     "build": "webpack -p --progress --colors",
     "prettier": "prettier --write \"src/**/*.{ts,tsx,css}\""
   },
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@types/classnames": "^2.2.7",
@@ -47,10 +46,12 @@
     "webpack-hot-middleware": "^2.24.3"
   },
   "dependencies": {
+    "@types/moment": "^2.13.0",
     "classnames": "^2.2.6",
     "mobx": "^5.8.0",
     "mobx-react": "^5.4.3",
     "mobx-react-router": "^4.0.5",
+    "moment": "^2.24.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-router": "^4.3.1"

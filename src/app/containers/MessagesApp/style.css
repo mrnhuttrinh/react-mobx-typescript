@@ -1,0 +1,22 @@
+.messageapp {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    background-color: #e6e6e6;
+}
+
+.messageapp__leftside {
+    flex: 0 350px;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #BDBDBD;
+    background-color: #EFF5FB;
+    max-height: 100vh;
+}
+
+.messageapp__rightcontent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
