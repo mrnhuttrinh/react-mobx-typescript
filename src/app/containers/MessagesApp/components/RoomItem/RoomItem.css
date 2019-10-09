@@ -6,6 +6,10 @@
     align-items: center;
 }
 
+.roomitem__active {
+    background-color: #D8D8D8;
+}
+
 .roomitem:hover {
     background-color: #D8D8D8;
     cursor: pointer;
@@ -21,6 +25,7 @@
     height: 50px;
     border-radius: 50%;
     overflow: hidden;
+    background-color: gray;
 }
 
 .roomitem__user {

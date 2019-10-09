@@ -24,6 +24,18 @@ export function generateCreatedAt() {
 var quotes = [
     'hi',
     'How are you!',
+    'good',
+    'long time no see',
+    'how\'s it going',
+    '1',
+    '2',
+    '3',
+    'i\'m tired',
+    'can I help you',
+    'what is your problem',
+    'give me a hand',
+    'What should I do?',
+    'Oh no',
     "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
     "I hate to hear you talk about all women as if they were fine ladies instead of rational creatures. None of us want to be in calm waters all our lives.",
     "Silly things do cease to be silly if they are done by sensible people in an impudent way.",
@@ -37,19 +49,36 @@ var quotes = [
     'See ya',
     'Goodbye',
     'Yo yo',
+    'Almost any mobile application that has to be built today has a part that requires an aspect of users communicating either in a group or a person to person chat.',
+    'Most at times',
+    'it is not quite easy to set up the database structure for such an application. When it comes to RDBMS systems such as MySQL, Oracle database or PostgreSQL, it is not much of a problem as such databases support data aggregation where with a single query, data can be queried from multiple tables and combined.',
+    'Well if you are new to mobile application development',
+    'setting up a backend on your own is not an easy task as you need the server to run 24h/7.',
+    'Maybe you just want to try something new and see how it is.That is where Google’s Firebase (firebase.google.com) comes in. It provides you with a mobile backend including file storage and crash reporting..',
+    'Google',
+    'Facebook',
+    'Twitter',
+    'Stackoverflow',
+    'medium',
 ];
 
-export function generateMessage() {
-    const min = getRandomInt(0, quotes.length);
-    const max = getRandomInt(0, quotes.length);
+interface User {
+    username: string;
+    avatar: string;
+}
+
+export function generateMessage(sender: User, receivers: Array<User>) {
+    const min = getRandomInt(1, quotes.length);
+    const max = getRandomInt(5, quotes.length);
     let messages = [];
     if (min < max) {
         messages = quotes.slice(min, max);;
     } else {
         messages = quotes.slice(max, min);
     }
-    const result = messages.map(message => {
+    const result = messages.map((message, index) => {
         return {
+            sender: getRandomInt(0, 2) === 0 ? sender : receivers[0],
             message,
             createdAt: generateCreatedAt(),
         };
@@ -58,16 +87,25 @@ export function generateMessage() {
     return result;
 }
 
-export function generateRoom() {
+export function generateUser() {
+    const avatarDimension = getRandomInt(50, 100);
+    return {
+        avatar: `https://picsum.photos/id/${avatarDimension}/${avatarDimension}/${avatarDimension}`,
+        username: generateName(),
+    };
+}
+
+export function generateRoom(currentUser) {
     const totalRoom = getRandomInt(2, 20);
-    const result = Array.from({length: totalRoom}, () => {
-        const avatarDimension = getRandomInt(50, 100);
-        const messages = generateMessage();
+    const result = Array.from({length: totalRoom}, (v, index) => {
+        const receivers = [generateUser()];
+        const messages = generateMessage(currentUser, receivers);
         return {
-            avatar: `http://lorempixel.com/${avatarDimension}/${avatarDimension}`,
-            username: generateName(),
-            lastMessage: messages[messages.length - 1].message,
-            createdAt: messages[messages.length - 1].createdAt,
+            id: index,
+            sender: currentUser,
+            receivers,
+            lastMessage: messages && messages.length ? messages[messages.length - 1].message: '',
+            createdAt: messages && messages.length ? messages[messages.length - 1].createdAt: (new Date()).getTime(),
             messages,
         }
     });

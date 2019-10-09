@@ -5,7 +5,9 @@ import * as styles from './MessageInput.css';
 export default class MessageInput extends React.PureComponent {
     render() {
         return (
-            <div className={styles.messageapp__messageinput}>Test</div>
+            <div className={styles.messageapp__messageinput}>
+                
+            </div>
         );
     }
 }
