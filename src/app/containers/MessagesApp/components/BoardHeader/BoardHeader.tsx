@@ -4,6 +4,7 @@ import * as styles from './BoardHeader.css';
 
 interface IProps {
     room: any;
+    handleGoBack(): void;
 }
 
 export default class BoardHeader extends React.PureComponent<IProps> {
@@ -11,7 +12,8 @@ export default class BoardHeader extends React.PureComponent<IProps> {
         const { room } = this.props;
         return (
             <div className={styles.messageapp__boardheader}>
-                <div className={styles.messageapp__boardheader__username}>{room.receivers[0].username}</div>
+                <div className={styles.goback} onClick={this.props.handleGoBack}>←</div>
+                <div className={styles.messageapp__boardheader__username}>{room && room.receivers[0].username}</div>
             </div>
         );
     }

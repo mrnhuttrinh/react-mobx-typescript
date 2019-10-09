@@ -22,13 +22,17 @@
 }
 
 .messageapp__messageboard__message > div {
-    margin: 5px;
+    margin: 0 5px;
 }
 
 .messageapp__messageboard__sender {
     flex-direction: row-reverse;
     text-align: right;
     margin-left: 75px;
+}
+
+.messageapp__messageboard__sender .message {
+    background-color: lightblue;
 }
 
 .messageapp__messageboard__receiver {
@@ -46,5 +50,7 @@
 }
 
 .message {
-
+    border: 1px solid lightgray;
+    padding: 10px;
+    border-radius: 3px;
 }

@@ -6,4 +6,6 @@
     background-color: white;
     border: 1px solid lightgray;
     cursor: pointer;
+    padding: 5px;
+    overflow: auto;
 }

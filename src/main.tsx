@@ -5,6 +5,7 @@ import { createBrowserHistory } from 'history';
 import { TodoModel } from 'app/models';
 import { createStores } from 'app/stores';
 import { App } from 'app';
+import { initializeIcons } from "@uifabric/icons";
 
 // default fixtures for TodoStore
 const defaultTodos = [
@@ -15,6 +16,8 @@ const defaultTodos = [
 // prepare MobX stores
 const history = createBrowserHistory();
 const rootStore = createStores(history, defaultTodos);
+
+initializeIcons(/* optional base url */);
 
 // render react DOM
 ReactDOM.render(

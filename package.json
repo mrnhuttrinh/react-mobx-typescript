@@ -47,11 +47,13 @@
   },
   "dependencies": {
     "@types/moment": "^2.13.0",
+    "@uifabric/icons": "^7.3.0",
     "classnames": "^2.2.6",
     "mobx": "^5.8.0",
     "mobx-react": "^5.4.3",
     "mobx-react-router": "^4.0.5",
     "moment": "^2.24.0",
+    "office-ui-fabric-react": "^7.45.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-router": "^4.3.1"

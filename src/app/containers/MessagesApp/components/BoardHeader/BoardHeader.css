@@ -11,3 +11,22 @@
     font-size: 20px;
     font-weight: bold;
 }
+
+
+.goback {
+    border-radius: 50%;
+    background-color: cornflowerblue;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .goback {
+        display: block;
+    }
+}

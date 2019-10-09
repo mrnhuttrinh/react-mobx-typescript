@@ -21,7 +21,7 @@ export default class RoomList extends React.PureComponent<IProps> {
                         username={room.username}
                         lastMessage={room.lastMessage}
                         createdAt={room.createdAt}
-                        isActive={this.props.selectedRoom.id === room.id}
+                        isActive={this.props.selectedRoom && this.props.selectedRoom.id === room.id}
                     />
                 ))}
             </div>

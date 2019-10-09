@@ -67,6 +67,16 @@ interface User {
     avatar: string;
 }
 
+export function sortAscendingCreatedAt(a, b) {
+    if (a.createdAt < b.createdAt) {
+        return -1;
+    }
+    if (a.createdAt > b.createdAt) {
+        return 1;
+    }
+    return 0;
+}
+
 export function generateMessage(sender: User, receivers: Array<User>) {
     const min = getRandomInt(1, quotes.length);
     const max = getRandomInt(5, quotes.length);
@@ -83,7 +93,7 @@ export function generateMessage(sender: User, receivers: Array<User>) {
             createdAt: generateCreatedAt(),
         };
     });
-    result.sort((a, b) => a.createdAt - b.createdAt);
+    result.sort(sortAscendingCreatedAt);
     return result;
 }
 
@@ -104,11 +114,12 @@ export function generateRoom(currentUser) {
             id: index,
             sender: currentUser,
             receivers,
-            lastMessage: messages && messages.length ? messages[messages.length - 1].message: '',
-            createdAt: messages && messages.length ? messages[messages.length - 1].createdAt: (new Date()).getTime(),
+            lastMessage: messages && messages.length ? messages[messages.length - 1].message : '',
+            createdAt: messages && messages.length ? messages[messages.length - 1].createdAt : (new Date()).getTime(),
             messages,
         }
     });
-    result.sort((a, b) => a.createdAt - b.createdAt);
+    result.sort(sortAscendingCreatedAt);
+    console.log(result)
     return result;
 }
